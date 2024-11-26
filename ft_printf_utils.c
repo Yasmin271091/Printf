@@ -29,6 +29,7 @@ int	ft_putstr(char *str)
 		ft_putchar(str[i++]);
 	return (i);
 }
+
 int	ft_putnbr(int n)
 {
 	int	len;
@@ -46,6 +47,7 @@ int	ft_putnbr(int n)
 	len += ft_putchar((n % 10) + '0');
 	return (len);
 }
+
 int	ft_putnbr_u(unsigned int n)
 {
 	int	len;
@@ -56,6 +58,7 @@ int	ft_putnbr_u(unsigned int n)
 	len += ft_putchar((n % 10) + '0');
 	return (len);
 }
+
 int	ft_puthex(unsigned int n, char format)
 {
 	int		len;
@@ -68,18 +71,5 @@ int	ft_puthex(unsigned int n, char format)
 	if (format == 'X' && hex_char >= 'a' && hex_char <= 'f')
 		hex_char -= 32;
 	len += ft_putchar(hex_char);
-	return (len);
-}
-int	ft_putptr(unsigned long ptr)
-{
-	int	len;
-
-	len = 0;
-	if (ptr == 0)
-		return (ft_putstr("(nil)"));
-	len += ft_putstr("0x");
-	if (ptr > 15)
-		len += ft_putptr(ptr / 16);
-	len += ft_putchar("0123456789abcdef"[ptr % 16]);
 	return (len);
 }

@@ -13,6 +13,20 @@
 #include "ft_printf.h"
 #include <stdarg.h>
 
+int	ft_putptr(unsigned long ptr)
+{
+	int	len;
+
+	len = 0;
+	if (ptr == 0)
+		return (ft_putstr("(nil)"));
+	len += ft_putstr("0x");
+	if (ptr > 15)
+		len += ft_putptr(ptr / 16);
+	len += ft_putchar("0123456789abcdef"[ptr % 16]);
+	return (len);
+}
+
 int	handle_conversion(va_list args, char specifier)
 {
 	if (specifier == 'c')
@@ -32,7 +46,7 @@ int	handle_conversion(va_list args, char specifier)
 	return (0);
 }
 
-int ft_printf(char const *str, ...)
+int	ft_printf(char const *str, ...)
 {
 	va_list	args;
 	int		i;
