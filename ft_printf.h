@@ -16,6 +16,7 @@
 # include <stdarg.h>
 
 int	ft_printf(char const *str, ...);
+int	ft_putnbr_hex(unsigned long n);
 int	ft_putchar(char c);
 int	ft_putstr(char *str);
 int	ft_putnbr(int n);

@@ -19,11 +19,27 @@ int	ft_putptr(unsigned long ptr)
 
 	len = 0;
 	if (ptr == 0)
-		return (ft_putstr("(nil)"));
-	len += ft_putstr("0x");
-	if (ptr > 15)
-		len += ft_putptr(ptr / 16);
-	len += ft_putchar("0123456789abcdef"[ptr % 16]);
+	{
+		len += ft_putstr("(nil)");
+	}
+	else
+	{
+		len += ft_putstr("0x");
+		len += ft_putnbr_hex(ptr);
+	}
+	return (len);
+}
+
+int	ft_putnbr_hex(unsigned long n)
+{
+	char	*hex;
+	int		len;
+
+	hex = "0123456789abcdef";
+	len = 0;
+	if (n >= 16)
+		len += ft_putnbr_hex(n / 16);
+	len += ft_putchar(hex[n % 16]);
 	return (len);
 }
 
@@ -58,7 +74,10 @@ int	ft_printf(char const *str, ...)
 	while (str[i])
 	{
 		if (str[i] == '%' && str[i + 1])
-			len += handle_conversion(args, str[++i]);
+		{
+			i++;
+			len += handle_conversion(args, str[i]);
+		}
 		else
 			len += ft_putchar(str[i]);
 		i++;

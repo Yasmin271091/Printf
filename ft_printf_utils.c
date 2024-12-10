@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <unistd.h>
 
 int	ft_putchar(char c)
 {
@@ -26,7 +25,10 @@ int	ft_putstr(char *str)
 		return (write(1, "(null)", 6));
 	i = 0;
 	while (str[i])
-		ft_putchar(str[i++]);
+	{
+		ft_putchar(str[i]);
+		i++;
+	}
 	return (i);
 }
 
@@ -36,15 +38,20 @@ int	ft_putnbr(int n)
 
 	len = 0;
 	if (n == -2147483648)
-		return (ft_putstr("-2147483648"));
-	if (n < 0)
 	{
-		len += ft_putchar('-');
-		n = -n;
+		len += ft_putstr("-2147483648");
 	}
-	if (n > 9)
-		len += ft_putnbr(n / 10);
-	len += ft_putchar((n % 10) + '0');
+	else
+	{
+		if (n < 0)
+		{
+			len += ft_putchar('-');
+			n = -n;
+		}
+		if (n > 9)
+			len += ft_putnbr(n / 10);
+		len += ft_putchar((n % 10) + '0');
+	}
 	return (len);
 }
 
