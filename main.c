@@ -1,4 +1,4 @@
-
+/*
 #include <stdio.h>
 #include "ft_printf.h" 
 
@@ -43,5 +43,5 @@ int main(void)
     printf("Longitudes: ft_printf = %d, printf = %d\n\n", ft_len, std_len);
 
     return 0;
-}
+}*/
 
