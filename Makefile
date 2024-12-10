@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
+#    By: yasjimen <yasjimen@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/11/25 21:32:14 by marvin            #+#    #+#              #
-#    Updated: 2024/11/25 21:34:53 by marvin           ###   ########.fr        #
+#    Created: 2024/11/26 19:21:59 by yasjimen          #+#    #+#              #
+#    Updated: 2024/11/26 19:23:40 by yasjimen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = libftprintf.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = SRC = ft_printf.c ft_printf_utils.c
+SRC = ft_printf.c ft_printf_utils.c
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)

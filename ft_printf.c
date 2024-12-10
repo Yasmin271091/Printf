@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yasjimen <yasjimen@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/25 21:21:57 by marvin            #+#    #+#             */
-/*   Updated: 2024/11/25 21:21:57 by marvin           ###   ########.fr       */
+/*   Created: 2024/11/26 19:22:17 by yasjimen          #+#    #+#             */
+/*   Updated: 2024/11/26 19:22:17 by yasjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,15 +52,15 @@ int	ft_printf(char const *str, ...)
 	int		i;
 	int		len;
 
-	va_start(args, format);
+	va_start(args, str);
 	i = 0;
 	len = 0;
-	while (format[i])
+	while (str[i])
 	{
-		if (format[i] == '%' && format[i + 1])
-			len += handle_conversion(args, format[++i]);
+		if (str[i] == '%' && str[i + 1])
+			len += handle_conversion(args, str[++i]);
 		else
-			len += ft_putchar(format[i]);
+			len += ft_putchar(str[i]);
 		i++;
 	}
 	va_end(args);
