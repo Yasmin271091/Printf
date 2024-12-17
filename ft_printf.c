@@ -12,6 +12,7 @@
 
 #include "ft_printf.h"
 #include <stdarg.h>
+#include <stdio.h>
 
 int	ft_putptr(unsigned long ptr)
 {
